@@ -1,0 +1,27 @@
+{
+  "name": "Road Trip Escocia Offline",
+  "short_name": "Escocia",
+  "description": "Itinerario por etapas con textos, mapas y audioguías privadas guardadas en el dispositivo.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#08130f",
+  "theme_color": "#10231d",
+  "lang": "es",
+  "categories": ["travel", "navigation"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

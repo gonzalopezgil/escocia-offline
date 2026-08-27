@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10231d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Guía local-first para recorrer Escocia por etapas, con audio y datos privados guardados en el dispositivo.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Escocia">
+  <title>Road Trip Escocia</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/app-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" type="button" data-action="home" aria-label="Volver al inicio">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>
+          <strong>Road Trip Escocia</strong>
+          <small id="network-status">Comprobando conexión…</small>
+        </span>
+      </button>
+      <button id="offline-badge" class="status-pill" type="button" data-view="preparar">Preparar</button>
+    </header>
+
+    <main id="app" tabindex="-1" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navegación principal">
+      <button class="nav-button is-active" type="button" data-view="ruta">
+        <span aria-hidden="true">⌁</span><span>Ruta</span>
+      </button>
+      <button class="nav-button" type="button" data-view="audios">
+        <span aria-hidden="true">◉</span><span>Audios</span>
+      </button>
+      <button class="nav-button" type="button" data-view="preparar">
+        <span aria-hidden="true">✓</span><span>Offline</span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="audio-dock" class="audio-dock" hidden>
+    <div class="audio-dock-copy">
+      <small id="audio-kicker">Audioguía</small>
+      <strong id="audio-title">Sin reproducción</strong>
+    </div>
+    <button id="audio-toggle" class="round-button" type="button" aria-label="Reproducir o pausar">▶</button>
+    <input id="audio-progress" type="range" min="0" max="1000" value="0" aria-label="Posición del audio">
+    <span id="audio-time">0:00 / 0:00</span>
+    <button class="dock-close" type="button" data-action="close-audio" aria-label="Cerrar reproductor">×</button>
+    <audio id="audio-element" preload="metadata"></audio>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./vendor/jszip.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
